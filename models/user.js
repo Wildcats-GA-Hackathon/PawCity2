@@ -27,7 +27,6 @@ const UserSchema = new Schema(
 			virtuals: true,
 			transform: (_doc, ret) => {
 				delete ret.password;
-				mongoose.Schema;
 				return ret;
 			},
 		},
