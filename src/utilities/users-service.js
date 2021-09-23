@@ -21,7 +21,7 @@ export async function login(userInfo) {
 }
 
 export function getToken() {
-	const token = localStorage.getItem('token', user.token);
+	const token = localStorage.getItem('token');
 	if (!token) {
 		return null;
 	}
@@ -32,4 +32,14 @@ export function getToken() {
 		return null;
 	}
 	return token;
+}
+
+export function getUser() {
+	const token = getToken();
+	// If there's a token, return the user in the payload, otherwise return null
+	return token ? JSON.parse(atob(token.split('.')[1])).user : null;
+}
+
+export function logout() {
+	localStorage.removeItem('token');
 }

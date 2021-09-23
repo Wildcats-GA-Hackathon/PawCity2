@@ -15,9 +15,10 @@ app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
 app.use(express.static(path.join(__dirname, 'build')));
 
 // authentication code
-app.use(require('./config/auth'));
+require('./config/auth');
 
 // put all the API routes HERE before the catch all route
+app.use('/api/users', require('./routes/users'));
 
 // 'catch all'
 app.get('/*', function (req, res) {
