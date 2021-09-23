@@ -9,7 +9,7 @@ import Home from '../Home/Home';
 
 const App = () => {
 	return (
-		<Container maxWidth='lg'>
+		<Container className='main' maxWidth='lg'>
 			<NavBar />
 			<Switch>
 				<Route exact path='/auth' component={Form} />
